@@ -1,54 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 //colors
-$primary: #527AAD;
+$primary: #527aad;
 $light-white: #ffffff;
 
-*{
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+* {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-
-
-.login_content{
-    align-items: center;
-    background-color: $primary;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
+.login_content {
+  align-items: center;
+  background-color: $primary;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 }
 
-.login_content div{
-    background-color: #ffffff;
-    color: $primary;
-    padding: 16px;
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.25);
-    border-radius: 0.3rem;
+.login_content div {
+  background-color: #ffffff;
+  color: $primary;
+  padding: 16px;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 0.3rem;
 }
 
-
-.form_login{
-    flex-direction: column;
-    display: flex;
-    justify-content: space-around;
-    height: 130px;
-    margin-top: 5px;
+.form_login {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+  height: 130px;
+  margin-top: 5px;
 }
 
-.input_login{
-    width: 300px;
-    margin: 0;
-    height: 35px;
-    padding: 5px 3px;
-    box-sizing: border-box;
+.input_login {
+  width: 300px;
+  margin: 0;
+  height: 35px;
+  padding: 5px 3px;
+  box-sizing: border-box;
 }
 
-.form_login button{
-    width: 100%;
-    height: 35px;
-    background-color: $primary;
-    color: white;
-    border: none;
+.form_login button {
+  width: 100%;
+  height: 35px;
+  background-color: $primary;
+  color: white;
+  border: none;
 }

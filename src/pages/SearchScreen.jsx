@@ -1,9 +1,5 @@
 import React from 'react'
 
 export const SearchScreen = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+  return <div>Hola mundo</div>
 }
