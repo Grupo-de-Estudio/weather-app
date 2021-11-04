@@ -1,11 +1,11 @@
-import './App.css'
+import React from 'react'
+import { LoginScreen } from './pages/LoginScreen'
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Weather App</h1>
-    </div>
-  )
+export const App = () => {
+    return (
+        <>
+            <LoginScreen />
+            
+        </>
+    )
 }
-
-export default App
