@@ -1,0 +1,27 @@
+.nav_home {
+  display: flex;
+  width: 100vw;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: 60px;
+  padding: 0 20px;
+}
+
+a {
+  padding-right: 15px;
+  text-decoration: none;
+  color: $primary;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+button {
+  padding: 8px;
+  background-color: $primary;
+  border: none;
+  color: white;
+}

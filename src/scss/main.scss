@@ -9,9 +9,13 @@ $light-white: #ffffff;
   font-family: 'Montserrat', sans-serif;
 }
 
+html,
+body {
+  background-color: $primary;
+}
+
 .login_content {
   align-items: center;
-  background-color: $primary;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -34,6 +38,14 @@ $light-white: #ffffff;
   margin-top: 5px;
 }
 
+.form_login button {
+  width: 100%;
+  height: 35px;
+  background-color: $primary;
+  color: white;
+  border: none;
+}
+
 .input_login {
   width: 300px;
   margin: 0;
@@ -42,10 +54,4 @@ $light-white: #ffffff;
   box-sizing: border-box;
 }
 
-.form_login button {
-  width: 100%;
-  height: 35px;
-  background-color: $primary;
-  color: white;
-  border: none;
-}
+@import './searchScreen.scss';
