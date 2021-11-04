@@ -4,7 +4,7 @@ export const LoginScreen = () => {
     return (
         <div className='login_content'>
             <div>
-                <h5>Log in</h5>
+                <h1>Log in</h1>
                 <form className='form_login' action="">
                     <input className='input_login' type="text" name='usuaruio' placeholder='Usuario'/>
                     <input className='input_login' type="password" name='password' placeholder='Contraseña'/>
