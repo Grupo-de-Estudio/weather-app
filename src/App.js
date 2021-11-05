@@ -1,11 +1,13 @@
 import React from 'react'
-import { LoginScreen } from './pages/LoginScreen'
+import { SearchScreen } from './pages/SearchScreen'
+// import { LoginScreen } from './pages/LoginScreen'
 
 export const App = () => {
-    return (
-        <>
-            <LoginScreen />
-            
-        </>
-    )
+  return (
+    <>
+      {/* <LoginScreen /> */}
+
+      <SearchScreen />
+    </>
+  )
 }
