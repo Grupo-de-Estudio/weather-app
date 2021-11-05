@@ -7,6 +7,9 @@ $light-white: #ffffff;
 * {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  input:focus {
+    outline: none;
+  }
 }
 
 html,

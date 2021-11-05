@@ -7,12 +7,14 @@
   box-sizing: border-box;
   height: 60px;
   padding: 0 20px;
+  position: fixed;
 }
 
 a {
   padding-right: 15px;
   text-decoration: none;
   color: $primary;
+  box-sizing: border-box;
 }
 
 a:hover {
@@ -24,4 +26,31 @@ button {
   background-color: $primary;
   border: none;
   color: white;
+}
+
+.div_input {
+  padding-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  width: 80%;
+  height: 40px;
+  border-radius: 0.3rem;
+  border: none;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+input::placeholder {
+  background-image: url(../lupa.png);
+  background-size: 19px 18px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  font-size: 14px;
 }

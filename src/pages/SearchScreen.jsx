@@ -16,6 +16,9 @@ export const SearchScreen = () => {
           <button>Cerrar Sesion</button>
         </div>
       </nav>
+      <div className="div_input">
+        <input type="text" placeholder="Ingrese una ciudad" />
+      </div>
     </>
   )
 }
