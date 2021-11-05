@@ -1,5 +1,12 @@
 import React from 'react'
+import { Navbar } from './Navbar'
+import { SearchHistory } from './SearchHistory'
 
 export const HistoryScreen = () => {
-  return <div>Hola Mundo</div>
+  return (
+    <>
+      <Navbar />
+      <SearchHistory />
+    </>
+  )
 }
