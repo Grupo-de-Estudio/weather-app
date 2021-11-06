@@ -19,6 +19,10 @@ body {
   height: 100vh;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .login_content {
   align-items: center;
   display: flex;
@@ -60,3 +64,4 @@ body {
 }
 
 @import './searchScreen.scss';
+@import './searchhistory.scss';

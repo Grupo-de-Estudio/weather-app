@@ -13,19 +13,17 @@ export const SingleCard = () => {
           />
           <h2>El Tigre</h2>
           <p>Muy nublado</p>
-          <p>
-            <b>26º</b>
-          </p>
+          <p className="bold">26º</p>
         </div>
         <div className="card_down">
           <p>
-            Temperatura maxima: <b>32º</b>
+            Temperatura maxima: <span className="bold">32º</span>
           </p>
           <p>
-            Temperatura minima: <b>20º</b>
+            Temperatura minima: <span className="bold">20º</span>
           </p>
           <p>
-            Sensasion Termica: <b>28º</b>
+            Sensasion Termica: <span className="bold">28º</span>
           </p>
           <button className="borrar">Borrar</button>
         </div>
@@ -40,19 +38,17 @@ export const SingleCard = () => {
           />
           <h2>El Tigre</h2>
           <p>Muy nublado</p>
-          <p>
-            <b>26º</b>
-          </p>
+          <p className="bold">26º</p>
         </div>
         <div className="card_down">
           <p>
-            Temperatura maxima: <b>32º</b>
+            Temperatura maxima: <span className="bold">32º</span>
           </p>
           <p>
-            Temperatura minima: <b>20º</b>
+            Temperatura minima: <span className="bold">20º</span>
           </p>
           <p>
-            Sensasion Termica: <b>28º</b>
+            Sensasion Termica: <span className="bold">28º</span>
           </p>
           <button className="borrar">Borrar</button>
         </div>
@@ -67,19 +63,17 @@ export const SingleCard = () => {
           />
           <h2>El Tigre</h2>
           <p>Muy nublado</p>
-          <p>
-            <b>26º</b>
-          </p>
+          <p className="bold">26º</p>
         </div>
         <div className="card_down">
           <p>
-            Temperatura maxima: <b>32º</b>
+            Temperatura maxima: <span className="bold">32º</span>
           </p>
           <p>
-            Temperatura minima: <b>20º</b>
+            Temperatura minima: <span className="bold">20º</span>
           </p>
           <p>
-            Sensasion Termica: <b>28º</b>
+            Sensasion Termica: <span className="bold">28º</span>
           </p>
           <button className="borrar">Borrar</button>
         </div>
@@ -94,19 +88,17 @@ export const SingleCard = () => {
           />
           <h2>El Tigre</h2>
           <p>Muy nublado</p>
-          <p>
-            <b>26º</b>
-          </p>
+          <p className="bold">26º</p>
         </div>
         <div className="card_down">
           <p>
-            Temperatura maxima: <b>32º</b>
+            Temperatura maxima: <span className="bold">32º</span>
           </p>
           <p>
-            Temperatura minima: <b>20º</b>
+            Temperatura minima: <span className="bold">20º</span>
           </p>
           <p>
-            Sensasion Termica: <b>28º</b>
+            Sensasion Termica: <span className="bold">28º</span>
           </p>
           <button className="borrar">Borrar</button>
         </div>
@@ -121,19 +113,17 @@ export const SingleCard = () => {
           />
           <h2>El Tigre</h2>
           <p>Muy nublado</p>
-          <p>
-            <b>26º</b>
-          </p>
+          <p className="bold">26º</p>
         </div>
         <div className="card_down">
           <p>
-            Temperatura maxima: <b>32º</b>
+            Temperatura maxima: <span className="bold">32º</span>
           </p>
           <p>
-            Temperatura minima: <b>20º</b>
+            Temperatura minima: <span className="bold">20º</span>
           </p>
           <p>
-            Sensasion Termica: <b>28º</b>
+            Sensasion Termica: <span className="bold">28º</span>
           </p>
           <button className="borrar">Borrar</button>
         </div>

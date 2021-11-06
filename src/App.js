@@ -1,5 +1,6 @@
 import React from 'react'
-import { SearchScreen } from './pages/SearchScreen'
+import { HistoryScreen } from './pages/HistoryScreen'
+// import { SearchScreen } from './pages/SearchScreen'
 // import { LoginScreen } from './pages/LoginScreen'
 
 export const App = () => {
@@ -7,7 +8,9 @@ export const App = () => {
     <>
       {/* <LoginScreen /> */}
 
-      <SearchScreen />
+      {/* <SearchScreen /> */}
+
+      <HistoryScreen />
     </>
   )
 }
