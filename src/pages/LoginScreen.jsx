@@ -1,6 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const LoginScreen = () => {
+  const navigate = useNavigate()
+  const handleLogin = () => {
+    navigate('/search', { replace: true })
+  }
   return (
     <div className="login_content">
       <div>
@@ -18,7 +23,7 @@ export const LoginScreen = () => {
             name="password"
             placeholder="Contraseña"
           />
-          <button type="submit">Iniciar sesion</button>
+          <button onClick={handleLogin}>Iniciar sesion</button>
         </form>
       </div>
     </div>

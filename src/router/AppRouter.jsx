@@ -1,19 +1,20 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Navbar } from '../pages/Navbar'
 import { HistoryScreen } from '../pages/HistoryScreen'
-import { SearchScreen } from '../pages/SearchScreen'
+
 import { LoginScreen } from '../pages/LoginScreen'
+
+import { SearchScreen } from '../pages/SearchScreen'
 
 export const AppRouter = () => {
   return (
     <Router>
       <div>
-        <Navbar />
         <Routes>
-          <Route exact path="/login" element={<LoginScreen />} />
-          <Route exact path="/search" element={<SearchScreen />} />
-          <Route exact path="/history" element={<HistoryScreen />} />
+          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/search" element={<SearchScreen />} />
+          <Route path="/history" element={<HistoryScreen />} />
+          <Route path="/" element={<SearchScreen />} />
         </Routes>
       </div>
     </Router>
