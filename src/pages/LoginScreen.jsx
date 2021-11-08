@@ -1,11 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 
-export const LoginScreen = () => {
+export const LoginScreen = ({ loguear }) => {
+  const navigate = useNavigate()
   return (
     <div className="login_content">
       <div>
         <h1>Log in</h1>
-        <form className="form_login" action="">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+          }}
+          className="form_login"
+        >
           <input
             className="input_login"
             type="text"
@@ -18,7 +25,14 @@ export const LoginScreen = () => {
             name="password"
             placeholder="Contraseña"
           />
-          <button type="submit">Iniciar sesion</button>
+          <button
+            onClick={() => {
+              loguear()
+              navigate('/')
+            }}
+          >
+            Iniciar sesion
+          </button>
         </form>
       </div>
     </div>

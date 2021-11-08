@@ -1,18 +1,26 @@
 import React from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
-export const Navbar = () => {
+export const Navbar = ({ desloguear }) => {
+  const navigate = useNavigate()
+  const cerrarSesion = () => {
+    desloguear()
+    navigate('/')
+  }
   return (
     <nav className="nav_home">
       <div>
-        <a href="#">Inicio</a>
+        <NavLink to="/search">Inicio</NavLink>
 
-        <a href="#">History</a>
+        <NavLink to="/history">History</NavLink>
       </div>
       <div>
         <a href="#">EN</a>
         <a href="#">ES</a>
         <a href="#">PT</a>
-        <button className="cerrar_sesion">Cerrar Sesion</button>
+        <button onClick={cerrarSesion} className="cerrar_sesion">
+          Cerrar Sesion
+        </button>
       </div>
     </nav>
   )

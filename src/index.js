@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { App } from './App'
+import { WeatherApp } from './WeatherApp'
 import './scss/main.scss'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<WeatherApp />, document.getElementById('root'))
