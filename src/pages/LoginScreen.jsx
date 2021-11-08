@@ -1,16 +1,16 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 
-export const LoginScreen = () => {
-  const navigate = useNavigate()
-  const handleLogin = () => {
-    navigate('/search', { replace: true })
-  }
+export const LoginScreen = ({ loguear }) => {
   return (
     <div className="login_content">
       <div>
         <h1>Log in</h1>
-        <form className="form_login" action="">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+          }}
+          className="form_login"
+        >
           <input
             className="input_login"
             type="text"
@@ -23,7 +23,7 @@ export const LoginScreen = () => {
             name="password"
             placeholder="Contraseña"
           />
-          <button onClick={handleLogin}>Iniciar sesion</button>
+          <button onClick={loguear}>Iniciar sesion</button>
         </form>
       </div>
     </div>
