@@ -1,17 +1,18 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
-export const Navbar = () => {
+export const Navbar = ({ desloguear }) => {
   const navigate = useNavigate()
   const cerrarSesion = () => {
-    navigate('/login')
+    desloguear()
+    navigate('/')
   }
   return (
     <nav className="nav_home">
       <div>
-        <Link to="/search">Inicio</Link>
+        <NavLink to="/search">Inicio</NavLink>
 
-        <Link to="/history">History</Link>
+        <NavLink to="/history">History</NavLink>
       </div>
       <div>
         <a href="#">EN</a>

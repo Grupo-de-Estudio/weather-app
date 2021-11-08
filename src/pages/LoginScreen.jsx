@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 
 export const LoginScreen = ({ loguear }) => {
+  const navigate = useNavigate()
   return (
     <div className="login_content">
       <div>
@@ -23,7 +25,14 @@ export const LoginScreen = ({ loguear }) => {
             name="password"
             placeholder="Contraseña"
           />
-          <button onClick={loguear}>Iniciar sesion</button>
+          <button
+            onClick={() => {
+              loguear()
+              navigate('/')
+            }}
+          >
+            Iniciar sesion
+          </button>
         </form>
       </div>
     </div>
