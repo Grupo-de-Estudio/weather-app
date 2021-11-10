@@ -18,7 +18,7 @@ export const Navbar = ({ desloguear }) => {
         <a href="#">EN</a>
         <a href="#">ES</a>
         <a href="#">PT</a>
-        <button onClick={cerrarSesion} className="cerrar_sesion">
+        <button type="button" onClick={cerrarSesion} className="cerrar_sesion">
           Cerrar Sesion
         </button>
       </div>

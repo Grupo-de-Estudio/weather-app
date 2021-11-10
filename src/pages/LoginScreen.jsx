@@ -26,6 +26,7 @@ export const LoginScreen = ({ loguear }) => {
             placeholder="Contraseña"
           />
           <button
+            type="button"
             onClick={() => {
               loguear()
               navigate('/')
