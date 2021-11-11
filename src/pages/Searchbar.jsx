@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 export const Searchbar = ({ setCiudades }) => {
   const [input, setInput] = useState('')
   return (
-    <div className="div_input">
+    <div>
       <form
+        className="div_input"
         onSubmit={(e) => {
           e.preventDefault()
           setCiudades((prev) => [...prev, input])

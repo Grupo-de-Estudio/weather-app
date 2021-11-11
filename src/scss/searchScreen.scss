@@ -129,3 +129,11 @@ p {
   width: 60px;
   box-sizing: border-box;
 }
+
+.card_loader {
+  width: 250px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
