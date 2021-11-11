@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { SearchScreen } from './pages/SearchScreen'
 import { HistoryScreen } from './pages/HistoryScreen'
 import { LoginScreen } from './pages/LoginScreen'
-import { fetchCityWeather } from './api/Weather'
 
 export const WeatherApp = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
