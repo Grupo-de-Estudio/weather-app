@@ -12,7 +12,7 @@ export const SingleCard = ({ ciudad, borrarCiudad }) => {
 
   if (!data)
     return (
-      <div className="card">
+      <div className="card_loader">
         <Loader type="TailSpin" color="white" height={100} width={100} />
       </div>
     )
