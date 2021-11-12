@@ -7,8 +7,11 @@ export const Searchbar = ({ setCiudades }) => {
       <form
         className="div_input"
         onSubmit={(e) => {
+          const busquedas = input
+            .split(',')
+            .map((city) => ({ nombre: city, fecha: new Date() }))
           e.preventDefault()
-          setCiudades((prev) => [...prev, input])
+          setCiudades((prev) => [...prev, ...busquedas])
           setInput('')
         }}
       >

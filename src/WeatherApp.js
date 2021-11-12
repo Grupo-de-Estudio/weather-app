@@ -6,6 +6,9 @@ import { LoginScreen } from './pages/LoginScreen'
 
 export const WeatherApp = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [ciudades, setCiudades] = useState([])
+  console.log(ciudades)
+
   const loguear = () => {
     setIsLoggedIn(true)
   }
@@ -19,11 +22,19 @@ export const WeatherApp = () => {
         <Routes>
           <Route
             path="/search"
-            element={<SearchScreen desloguear={desloguear} />}
+            element={
+              <SearchScreen
+                desloguear={desloguear}
+                ciudades={ciudades}
+                setCiudades={setCiudades}
+              />
+            }
           />
           <Route
             path="/history"
-            element={<HistoryScreen desloguear={desloguear} />}
+            element={
+              <HistoryScreen desloguear={desloguear} ciudades={ciudades} />
+            }
           />
           <Route
             path="/"
