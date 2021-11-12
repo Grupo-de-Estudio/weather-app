@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const Searchbar = ({ setCiudades }) => {
+export const Searchbar = ({ setCiudades, setHistorial }) => {
   const [input, setInput] = useState('')
   return (
     <div>
@@ -12,6 +12,7 @@ export const Searchbar = ({ setCiudades }) => {
             .map((city) => ({ nombre: city, fecha: new Date() }))
           e.preventDefault()
           setCiudades((prev) => [...prev, ...busquedas])
+          setHistorial((prev) => [...prev, ...busquedas].reverse().slice(0, 10))
           setInput('')
         }}
       >
