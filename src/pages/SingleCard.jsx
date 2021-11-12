@@ -21,7 +21,7 @@ export const SingleCard = ({ ciudad, borrarCiudad }) => {
       <div className="card_image">
         <img
           className="clouds"
-          src="https://i.ibb.co/y4GhG0H/cloud.png"
+          src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
           alt="cloud"
           border="0"
         />
