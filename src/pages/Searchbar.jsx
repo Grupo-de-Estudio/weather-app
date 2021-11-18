@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 
-export const Searchbar = ({ setCiudades }) => {
+export const Searchbar = ({ setCiudades, setHistorial }) => {
   const [input, setInput] = useState('')
   return (
     <div>
       <form
         className="div_input"
         onSubmit={(e) => {
+          const busquedas = input
+            .split(',')
+            .map((city) => ({ nombre: city, fecha: new Date() }))
           e.preventDefault()
-          setCiudades((prev) => [...prev, input])
+          setCiudades((prev) => [...prev, ...busquedas])
+          setHistorial((prev) => [...prev, ...busquedas].reverse().slice(0, 10))
           setInput('')
         }}
       >
