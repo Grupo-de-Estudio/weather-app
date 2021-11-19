@@ -3,6 +3,9 @@
 //colors
 $primary: #527aad;
 $light-white: #ffffff;
+$white: #fff;
+$google-blue: #4285f4;
+$button-active-blue: #1669f2;
 
 * {
   margin: 0;
@@ -31,37 +34,77 @@ body {
   width: 100vw;
 }
 
-.login_content div {
-  background-color: #ffffff;
+.form-login {
+  background-color: #f7f3f3;
   color: $primary;
   padding: 16px;
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.25);
   border-radius: 0.3rem;
-}
-
-.form_login {
-  flex-direction: column;
-  display: flex;
-  justify-content: space-around;
-  height: 130px;
-  margin-top: 5px;
-}
-
-.form_login button {
-  width: 100%;
-  height: 35px;
-  background-color: $primary;
-  color: white;
-  border: none;
-}
-
-.input_login {
   width: 300px;
-  margin: 0;
-  height: 35px;
-  padding: 5px 3px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.google-btn {
+  cursor: pointer;
+  margin-top: 18px;
+  width: 100%;
+  height: 45px;
+  background-color: $google-blue;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
   box-sizing: border-box;
-  border: #527aad solid 1px;
+  color: white;
+  align-items: center;
+  border: 1px $primary solid;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: white;
+    color: $google-blue;
+  }
+
+  &:active {
+    background-color: $google-blue;
+    color: white;
+  }
+}
+
+.google-icon-wrapper {
+  background-color: white;
+  height: 100%;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: $google-blue solid 1px;
+}
+
+.google-icon {
+  height: 35px;
+  width: 40px;
+}
+
+.text-content {
+  width: 65%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.facebook-icon {
+  height: 35px;
+  width: 35px;
+}
+
+.text-content-facebook {
+  width: 68%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 @import './searchScreen.scss';
