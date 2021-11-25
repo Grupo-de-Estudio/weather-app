@@ -1,13 +1,22 @@
 import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
+import { GoogleAuthProvider, getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCoCpg0Qyzhsduy8lFJhxr2W0m_D3Sheck',
-  authDomain: 'proyecto-weather-56f8b.firebaseapp.com',
-  projectId: 'proyecto-weather-56f8b',
-  storageBucket: 'proyecto-weather-56f8b.appspot.com',
-  messagingSenderId: '76962852029',
-  appId: '1:76962852029:web:50be6387f24177d3449bd4',
+  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_FIREBASE_APPID,
 }
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
+const db = getFirestore()
+const auth = getAuth()
+console.log(auth)
+
+const googleAuthProvider = new GoogleAuthProvider()
+
+export { db, googleAuthProvider, app, auth }

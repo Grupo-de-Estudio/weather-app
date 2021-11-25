@@ -1,26 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { SearchScreen } from './pages/SearchScreen'
 import { HistoryScreen } from './pages/HistoryScreen'
 import { LoginScreen } from './pages/LoginScreen'
+import { googleLogin, logout } from './actions/auth'
+import { Context } from './context/authContext'
 
 export const WeatherApp = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const { user, setUser } = useContext(Context)
   const [ciudades, setCiudades] = useState([])
   const [historial, setHistorial] = useState([])
 
-  const loguear = () => {
-    setIsLoggedIn(true)
+  const loguear = async () => {
+    const res = await googleLogin()
+    setUser(res)
   }
+
   const desloguear = () => {
-    setIsLoggedIn(false)
+    const res = logout()
+    setUser(null)
   }
 
   return (
     <Router>
       <div>
         <Routes>
-          {isLoggedIn && (
+          {user && (
             <>
               <Route
                 path="/history"
@@ -47,7 +52,7 @@ export const WeatherApp = () => {
           <Route
             path="/"
             element={
-              isLoggedIn ? (
+              user ? (
                 <SearchScreen
                   desloguear={desloguear}
                   ciudades={ciudades}

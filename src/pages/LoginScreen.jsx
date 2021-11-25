@@ -1,13 +1,12 @@
 import React from 'react'
-import { useNavigate } from 'react-router'
 
 export const LoginScreen = ({ loguear }) => {
-  const navigate = useNavigate()
   return (
     <div className="login_content">
       <div className="form-login">
         <h1>Log in</h1>
-        <div className="google-btn">
+
+        <div className="google-btn" onClick={loguear}>
           <div className="google-icon-wrapper">
             <img
               className="google-icon"
