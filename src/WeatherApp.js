@@ -5,6 +5,8 @@ import { HistoryScreen } from './pages/HistoryScreen'
 import { LoginScreen } from './pages/LoginScreen'
 import { googleLogin, logout } from './actions/auth'
 import { Context } from './context/authContext'
+import { useEffect } from 'react/cjs/react.development'
+import { auth } from './firebase/config'
 
 export const WeatherApp = () => {
   const { user, setUser } = useContext(Context)
@@ -15,6 +17,15 @@ export const WeatherApp = () => {
     const res = await googleLogin()
     setUser(res)
   }
+
+  // Mantener el estado de la autenticacion al hacer refresh
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user?.uid) {
+        setUser(user)
+      }
+    })
+  }, [])
 
   const desloguear = () => {
     const res = logout()
