@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Navbar } from './Navbar'
-import { Searchbar } from './Searchbar'
-import { SingleCard } from './SingleCard'
+import { Navbar } from './components/Navbar'
+import { Searchbar } from './components/Searchbar'
+import { SingleCard } from './components/SingleCard'
 
 export const SearchScreen = ({
   desloguear,
@@ -12,6 +12,7 @@ export const SearchScreen = ({
   const borrarCiudad = (city) => {
     setCiudades(ciudades.filter((ciudad) => ciudad.nombre !== city))
   }
+
   return (
     <>
       <Navbar desloguear={desloguear} />
@@ -19,7 +20,7 @@ export const SearchScreen = ({
       <div className="cards_content">
         {ciudades.map((ciudad) => (
           <SingleCard
-            key={ciudad.nombre}
+            key={Math.round(Math.random() * 1000)}
             ciudad={ciudad.nombre}
             borrarCiudad={borrarCiudad}
           />

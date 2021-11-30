@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { fetchCityWeather } from '../api/Weather'
+import { fetchCityWeather } from '../../api/Weather'
 import Loader from 'react-loader-spinner'
 
 export const SingleCard = ({ ciudad, borrarCiudad }) => {

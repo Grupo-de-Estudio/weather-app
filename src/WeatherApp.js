@@ -32,6 +32,12 @@ export const WeatherApp = () => {
     setUser(null)
   }
 
+  const usuario = {
+    nombre: 'carlos',
+    apellido: 'centeno',
+    edad: 27,
+  }
+
   return (
     <Router>
       <div>

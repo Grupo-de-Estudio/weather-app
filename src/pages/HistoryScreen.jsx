@@ -1,8 +1,9 @@
 import React from 'react'
-import { Navbar } from './Navbar'
-import { SearchHistory } from './SearchHistory'
+import { Navbar } from './components/Navbar'
+import { SearchHistory } from './components/SearchHistory'
 
 export const HistoryScreen = ({ desloguear, historial }) => {
+  console.log(historial)
   return (
     <>
       <Navbar desloguear={desloguear} />
@@ -10,7 +11,7 @@ export const HistoryScreen = ({ desloguear, historial }) => {
         {historial.map((ciudad) => (
           <SearchHistory
             ciudad={ciudad.nombre}
-            key={ciudad.nombre}
+            key={Math.round(Math.random() * 1000)}
             fecha={ciudad.fecha}
           />
         ))}

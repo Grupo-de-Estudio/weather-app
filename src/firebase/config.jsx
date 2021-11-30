@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
+import { getFirestore, collection } from 'firebase/firestore'
 import { GoogleAuthProvider, getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
@@ -15,7 +15,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getFirestore()
 const auth = getAuth()
+const colRef = collection(db, 'historial')
 
 const googleAuthProvider = new GoogleAuthProvider()
 
-export { db, googleAuthProvider, app, auth }
+export { db, googleAuthProvider, app, auth, colRef }
