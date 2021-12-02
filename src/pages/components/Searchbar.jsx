@@ -12,7 +12,7 @@ export const Searchbar = ({ setCiudades, setHistorial }) => {
             .split(',')
             .map((city) => ({ nombre: city, fecha: new Date() }))
           e.preventDefault()
-          setCiudades((prev) => [...prev, ...busquedas])
+          setCiudades((prev) => [...busquedas, ...prev])
           setHistorial((prev) => [...busquedas, ...prev].slice(0, 10))
           setInput('')
         }}

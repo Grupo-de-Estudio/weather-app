@@ -56,9 +56,9 @@ export const SearchHistory = ({ ciudad, fecha }) => {
     uid: user.uid,
   }
 
-  const agregarDatos = () => {
-    addDoc(colRef, cargarHistorial)
-  }
+  // const agregarDatos = () => {
+  //   addDoc(colRef, cargarHistorial)
+  // }
 
   // getDocs(colRef).where("uid","==",user.uid)
   //   .then((snapshot) => {

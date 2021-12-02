@@ -1,11 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { SearchScreen } from './pages/SearchScreen'
 import { HistoryScreen } from './pages/HistoryScreen'
 import { LoginScreen } from './pages/LoginScreen'
 import { googleLogin, logout } from './actions/auth'
 import { Context } from './context/authContext'
-import { useEffect } from 'react/cjs/react.development'
 import { auth } from './firebase/config'
 
 export const WeatherApp = () => {
@@ -18,6 +17,11 @@ export const WeatherApp = () => {
     setUser(res)
   }
 
+  const desloguear = () => {
+    const res = logout()
+    setUser(null)
+  }
+
   // Mantener el estado de la autenticacion al hacer refresh
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -27,16 +31,7 @@ export const WeatherApp = () => {
     })
   }, [])
 
-  const desloguear = () => {
-    const res = logout()
-    setUser(null)
-  }
-
-  const usuario = {
-    nombre: 'carlos',
-    apellido: 'centeno',
-    edad: 27,
-  }
+  // Obtener datos del historial
 
   return (
     <Router>

@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar'
 import { SearchHistory } from './components/SearchHistory'
 
 export const HistoryScreen = ({ desloguear, historial }) => {
-  console.log(historial)
   return (
     <>
       <Navbar desloguear={desloguear} />
