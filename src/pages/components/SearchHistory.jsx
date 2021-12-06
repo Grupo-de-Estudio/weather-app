@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
-import { colRef } from '../../firebase/config'
-import { getDocs, addDoc, deleteDoc } from 'firebase/firestore'
+import { getDocs, deleteDoc } from 'firebase/firestore'
 import { useUserContext } from '../../context/authContext'
 
 export const SearchHistory = ({ ciudad, fecha }) => {
@@ -55,10 +54,6 @@ export const SearchHistory = ({ ciudad, fecha }) => {
     segundos: segundos,
     uid: user.uid,
   }
-
-  // const agregarDatos = () => {
-  //   addDoc(colRef, cargarHistorial)
-  // }
 
   // getDocs(colRef).where("uid","==",user.uid)
   //   .then((snapshot) => {

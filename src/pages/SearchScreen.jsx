@@ -8,6 +8,7 @@ export const SearchScreen = ({
   ciudades,
   setCiudades,
   setHistorial,
+  agregarDatosFirebase,
 }) => {
   const borrarCiudad = (city) => {
     setCiudades(ciudades.filter((ciudad) => ciudad.nombre !== city))
@@ -16,7 +17,11 @@ export const SearchScreen = ({
   return (
     <>
       <Navbar desloguear={desloguear} />
-      <Searchbar setCiudades={setCiudades} setHistorial={setHistorial} />
+      <Searchbar
+        setCiudades={setCiudades}
+        setHistorial={setHistorial}
+        agregarDatosFirebase={agregarDatosFirebase}
+      />
       <div className="cards_content">
         {ciudades.map((ciudad) => (
           <SingleCard

@@ -5,12 +5,17 @@ import { HistoryScreen } from './pages/HistoryScreen'
 import { LoginScreen } from './pages/LoginScreen'
 import { googleLogin, logout } from './actions/auth'
 import { Context } from './context/authContext'
-import { auth } from './firebase/config'
+import { auth, colRef } from './firebase/config'
+import { addDoc } from '@firebase/firestore'
 
 export const WeatherApp = () => {
   const { user, setUser } = useContext(Context)
   const [ciudades, setCiudades] = useState([])
-  const [historial, setHistorial] = useState([])
+  const [historial, setHistorial] = useState([
+    { nombre: 'Prueba', fecha: new Date() },
+  ])
+
+  console.log(historial)
 
   const loguear = async () => {
     const res = await googleLogin()
@@ -31,7 +36,59 @@ export const WeatherApp = () => {
     })
   }, [])
 
-  // Obtener datos del historial
+  // Subir datos del historial a firebase
+  const agregarDatosFirebase = () => {
+    let anio = historial[0].fecha.getFullYear()
+    let diaNumero = historial[0].fecha.getDate()
+    let diaSemana = historial[0].fecha.getDay()
+    let mes = historial[0].fecha.getMonth()
+
+    if (mes == 0) mes = 'Enero'
+    if (mes == 1) mes = 'Febrero'
+    if (mes == 2) mes = 'Marzo'
+    if (mes == 3) mes = 'Abril'
+    if (mes == 4) mes = 'Mayo'
+    if (mes == 5) mes = 'Junio'
+    if (mes == 6) mes = 'Julio'
+    if (mes == 7) mes = 'Agosto'
+    if (mes == 8) mes = 'Septiembre'
+    if (mes == 9) mes = 'Octubre'
+    if (mes == 10) mes = 'Noviembre'
+    if (mes == 11) mes = 'Diciembre'
+
+    if (diaSemana == 0) diaSemana = 'Domingo'
+    if (diaSemana == 1) diaSemana = 'Lunes'
+    if (diaSemana == 2) diaSemana = 'Martes'
+    if (diaSemana == 3) diaSemana = 'Miercoles'
+    if (diaSemana == 4) diaSemana = 'Jueves'
+    if (diaSemana == 5) diaSemana = 'Viernes'
+    if (diaSemana == 6) diaSemana = 'Sabado'
+
+    let hora = historial[0].fecha.getHours()
+    if (hora <= 9) hora = `0${hora}`
+
+    let minutos = historial[0].fecha.getMinutes()
+    if (minutos <= 9) minutos = `0${minutos}`
+
+    let segundos = historial[0].fecha.getSeconds()
+    if (segundos <= 9) segundos = `0${segundos}`
+
+    let palabra = historial[0].nombre.trim()
+
+    const cargarHistorial = {
+      ciudad: palabra,
+      dia: diaSemana,
+      fecha: diaNumero,
+      mes: mes,
+      anio: anio,
+      hora: hora,
+      minutos: minutos,
+      segundos: segundos,
+      uid: user.uid,
+    }
+
+    addDoc(colRef, cargarHistorial)
+  }
 
   return (
     <Router>
@@ -56,6 +113,7 @@ export const WeatherApp = () => {
                     ciudades={ciudades}
                     setCiudades={setCiudades}
                     setHistorial={setHistorial}
+                    agregarDatosFirebase={agregarDatosFirebase}
                   />
                 }
               />
