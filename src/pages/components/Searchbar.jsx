@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 
-export const Searchbar = ({
-  setCiudades,
-  setHistorial,
-  agregarDatosFirebase,
-}) => {
+export const Searchbar = ({ setCiudades, setHistorial }) => {
   const [input, setInput] = useState('')
 
   return (
@@ -19,7 +15,6 @@ export const Searchbar = ({
           setCiudades((prev) => [...busquedas, ...prev])
           setHistorial((prev) => [...busquedas, ...prev].slice(0, 10))
           setInput('')
-          agregarDatosFirebase()
         }}
       >
         <input

@@ -11,9 +11,7 @@ import { addDoc } from '@firebase/firestore'
 export const WeatherApp = () => {
   const { user, setUser } = useContext(Context)
   const [ciudades, setCiudades] = useState([])
-  const [historial, setHistorial] = useState([
-    { nombre: 'Prueba', fecha: new Date() },
-  ])
+  const [historial, setHistorial] = useState([])
 
   console.log(historial)
 
@@ -37,7 +35,8 @@ export const WeatherApp = () => {
   }, [])
 
   // Subir datos del historial a firebase
-  const agregarDatosFirebase = () => {
+
+  const subirDatos = () => {
     let anio = historial[0].fecha.getFullYear()
     let diaNumero = historial[0].fecha.getDate()
     let diaSemana = historial[0].fecha.getDay()
@@ -73,10 +72,10 @@ export const WeatherApp = () => {
     let segundos = historial[0].fecha.getSeconds()
     if (segundos <= 9) segundos = `0${segundos}`
 
-    let palabra = historial[0].nombre.trim()
+    let ciudad = historial[0].nombre.trim()
 
     const cargarHistorial = {
-      ciudad: palabra,
+      ciudad: ciudad,
       dia: diaSemana,
       fecha: diaNumero,
       mes: mes,
@@ -84,11 +83,23 @@ export const WeatherApp = () => {
       hora: hora,
       minutos: minutos,
       segundos: segundos,
-      uid: user.uid,
+      uid: user?.uid ? user.uid : 'cargando',
     }
 
     addDoc(colRef, cargarHistorial)
+
+    // const agregarDatosFirebase = () => {
+    //   addDoc(colRef, cargarHistorial)
+    // }
   }
+
+  useEffect(() => {
+    if (historial.length == 0) {
+      return
+    } else {
+      subirDatos()
+    }
+  }, [historial])
 
   return (
     <Router>
@@ -113,7 +124,7 @@ export const WeatherApp = () => {
                     ciudades={ciudades}
                     setCiudades={setCiudades}
                     setHistorial={setHistorial}
-                    agregarDatosFirebase={agregarDatosFirebase}
+                    subirDatos={subirDatos}
                   />
                 }
               />
@@ -128,6 +139,7 @@ export const WeatherApp = () => {
                   ciudades={ciudades}
                   setHistorial={setHistorial}
                   setCiudades={setCiudades}
+                  subirDatos={subirDatos}
                 />
               ) : (
                 <LoginScreen loguear={loguear} />
