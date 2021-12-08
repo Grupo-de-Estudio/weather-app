@@ -1,17 +1,51 @@
-import React from 'react'
+import { getDocs, limit, orderBy, query, where } from '@firebase/firestore'
+import React, { useEffect, useState } from 'react'
+import { useUserContext } from '../context/authContext'
+import { colRef } from '../firebase/config'
 import { Navbar } from './components/Navbar'
 import { SearchHistory } from './components/SearchHistory'
 
-export const HistoryScreen = ({ desloguear, historial }) => {
+export const HistoryScreen = ({ desloguear }) => {
+  const { user } = useUserContext()
+  const [bajados, setBajados] = useState([])
+
+  const bajarDatos = getDocs(colRef)
+    // .where('uid', '==', user.uid)
+    .then((snapshot) => {
+      let datos = []
+      snapshot.docs.forEach((doc) => {
+        datos.push({ ...doc.data(), id: doc.id })
+      })
+      return datos
+    })
+
+  const cargarDatosBajados = async () => {
+    const datos = await bajarDatos
+    setBajados(datos)
+  }
+
+  useEffect(() => {
+    cargarDatosBajados()
+  }, [])
+
+  console.log(bajados)
+
   return (
     <>
       <Navbar desloguear={desloguear} />
       <div className="history_content">
-        {historial.map((ciudad) => (
+        {bajados.map((ciudad) => (
           <SearchHistory
-            ciudad={ciudad.nombre}
-            key={Math.round(Math.random() * 1000)}
+            ciudad={ciudad.ciudad}
+            key={ciudad.id}
             fecha={ciudad.fecha}
+            anio={ciudad.anio}
+            dia={ciudad.dia}
+            hora={ciudad.hora}
+            mes={ciudad.mes}
+            minutos={ciudad.minutos}
+            segundos={ciudad.segundos}
+            uid={ciudad.uid}
           />
         ))}
       </div>

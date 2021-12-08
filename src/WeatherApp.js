@@ -13,8 +13,6 @@ export const WeatherApp = () => {
   const [ciudades, setCiudades] = useState([])
   const [historial, setHistorial] = useState([])
 
-  console.log(historial)
-
   const loguear = async () => {
     const res = await googleLogin()
     setUser(res)
@@ -87,10 +85,6 @@ export const WeatherApp = () => {
     }
 
     addDoc(colRef, cargarHistorial)
-
-    // const agregarDatosFirebase = () => {
-    //   addDoc(colRef, cargarHistorial)
-    // }
   }
 
   useEffect(() => {

@@ -23,6 +23,7 @@ export const Searchbar = ({ setCiudades, setHistorial }) => {
           placeholder="Ingrese una ciudad"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          required
         />
       </form>
     </div>
