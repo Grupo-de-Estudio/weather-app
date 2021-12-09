@@ -9,32 +9,36 @@ export const HistoryScreen = ({ desloguear }) => {
   const { user } = useUserContext()
   const [bajados, setBajados] = useState([])
 
-  const bajarDatos = getDocs(colRef)
-    // .where('uid', '==', user.uid)
-    .then((snapshot) => {
+  const bajarDatos = getDocs(query(colRef, where('uid', '==', user.uid))).then(
+    (snapshot) => {
       let datos = []
       snapshot.docs.forEach((doc) => {
         datos.push({ ...doc.data(), id: doc.id })
       })
       return datos
-    })
+    }
+  )
 
   const cargarDatosBajados = async () => {
     const datos = await bajarDatos
     setBajados(datos)
   }
 
+  bajados.sort((a, b) => {
+    if (a.orden > b.orden) {
+      return -1
+    }
+  })
+
   useEffect(() => {
     cargarDatosBajados()
   }, [])
-
-  console.log(bajados)
 
   return (
     <>
       <Navbar desloguear={desloguear} />
       <div className="history_content">
-        {bajados.map((ciudad) => (
+        {bajados.slice(0, 10).map((ciudad) => (
           <SearchHistory
             ciudad={ciudad.ciudad}
             key={ciudad.id}

@@ -73,6 +73,7 @@ export const WeatherApp = () => {
     let ciudad = historial[0].nombre.trim()
 
     const cargarHistorial = {
+      orden: Date.now(),
       ciudad: ciudad,
       dia: diaSemana,
       fecha: diaNumero,
