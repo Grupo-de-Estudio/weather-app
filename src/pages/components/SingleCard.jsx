@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { fetchCityWeather } from '../../api/Weather'
 import Loader from 'react-loader-spinner'
+import { deleteDoc, doc } from '@firebase/firestore'
+import { db } from '../../firebase/config'
 
-export const SingleCard = ({ ciudad, borrarCiudad }) => {
+export const SingleCard = ({ ciudad, id, borrarCiudad }) => {
   const [data, setData] = useState()
 
   useEffect(async () => {
@@ -40,7 +42,13 @@ export const SingleCard = ({ ciudad, borrarCiudad }) => {
           Sensasion Termica:{' '}
           <span className="bold">{data.main.feels_like}º</span>
         </p>
-        <button className="borrar" onClick={() => borrarCiudad(ciudad)}>
+        <button
+          className="borrar"
+          onClick={() => {
+            deleteDoc(doc(db, 'tarjetas', id))
+            borrarCiudad(ciudad)
+          }}
+        >
           Borrar
         </button>
       </div>

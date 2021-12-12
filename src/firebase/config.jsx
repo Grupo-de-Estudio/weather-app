@@ -16,7 +16,8 @@ const app = initializeApp(firebaseConfig)
 const db = getFirestore()
 const auth = getAuth()
 const colRef = collection(db, 'historial')
+const tarjetas = collection(db, 'tarjetas')
 
 const googleAuthProvider = new GoogleAuthProvider()
 
-export { db, googleAuthProvider, app, auth, colRef }
+export { db, googleAuthProvider, app, auth, colRef, tarjetas }

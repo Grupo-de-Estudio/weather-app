@@ -5,7 +5,7 @@ import { HistoryScreen } from './pages/HistoryScreen'
 import { LoginScreen } from './pages/LoginScreen'
 import { googleLogin, logout } from './actions/auth'
 import { Context } from './context/authContext'
-import { auth, colRef } from './firebase/config'
+import { auth, colRef, tarjetas } from './firebase/config'
 import { addDoc } from '@firebase/firestore'
 
 export const WeatherApp = () => {
@@ -88,13 +88,29 @@ export const WeatherApp = () => {
     addDoc(colRef, cargarHistorial)
   }
 
+  const subirTarjeta = () => {
+    const nombreTarjeta = {
+      ciudad: ciudades[0].nombre,
+      uid: user?.uid ? user.uid : 'cargando',
+      orden: Date.now(),
+    }
+
+    addDoc(tarjetas, nombreTarjeta)
+  }
+
   useEffect(() => {
     if (historial.length == 0) {
       return
     } else {
       subirDatos()
     }
-  }, [historial])
+
+    if (ciudades.length == 0) {
+      return
+    } else {
+      subirTarjeta()
+    }
+  }, [historial, ciudades])
 
   return (
     <Router>
