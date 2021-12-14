@@ -42,8 +42,8 @@ export const SearchScreen = ({
     cargarDatosBajados()
   }, [ciudades])
 
-  const borrarCiudad = (city) => {
-    setBajarTarjetas(bajarTarjetas.filter((ciudad) => ciudad.ciudad != city))
+  const borrarCiudad = (id) => {
+    setBajarTarjetas(bajarTarjetas.filter((ciudad) => ciudad.id != id))
   }
 
   return (

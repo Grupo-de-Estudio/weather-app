@@ -12,6 +12,10 @@ export const SingleCard = ({ ciudad, id, borrarCiudad }) => {
     setData(resData)
   }, [])
 
+  const borrarCiudadFirebase = () => {
+    deleteDoc(doc(db, 'tarjetas', id))
+  }
+
   if (!data)
     return (
       <div className="card_loader">
@@ -45,8 +49,8 @@ export const SingleCard = ({ ciudad, id, borrarCiudad }) => {
         <button
           className="borrar"
           onClick={() => {
-            deleteDoc(doc(db, 'tarjetas', id))
-            borrarCiudad(ciudad)
+            borrarCiudadFirebase()
+            borrarCiudad(id)
           }}
         >
           Borrar
