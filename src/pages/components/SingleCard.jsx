@@ -9,7 +9,12 @@ export const SingleCard = ({ ciudad, id, borrarCiudad }) => {
 
   useEffect(async () => {
     const resData = await fetchCityWeather(ciudad)
-    setData(resData)
+    if (resData == undefined) {
+      deleteDoc(doc(db, 'tarjetas', id))
+      alert('INTRODUZCA UNA CIUDAD VÁLIDA') ? '' : location.reload()
+    } else {
+      setData(resData)
+    }
   }, [])
 
   const borrarCiudadFirebase = () => {

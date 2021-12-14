@@ -19,20 +19,6 @@ export const LoginScreen = ({ loguear }) => {
             <b>Sign in with google</b>
           </div>
         </div>
-
-        <div className="google-btn">
-          <div className="google-icon-wrapper">
-            <img
-              className="facebook-icon"
-              src="https://i.ibb.co/5sdfMW6/768px-Facebook-icon-2013-svg.png"
-              alt="google button"
-            />
-          </div>
-
-          <div className="text-content-facebook">
-            <b>Sign in with facebook</b>
-          </div>
-        </div>
       </div>
     </div>
   )

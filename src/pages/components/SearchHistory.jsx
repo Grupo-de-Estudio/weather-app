@@ -14,9 +14,9 @@ export const SearchHistory = ({
 }) => {
   return (
     <div className="historys">
-      <p className="bold">{`${ciudad.charAt(0).toUpperCase()}${ciudad.slice(
-        1
-      )}`}</p>
+      <p className="bold">{`${ciudad.charAt(0).toUpperCase()}${ciudad
+        .slice(1)
+        .toLowerCase()}`}</p>
       <p>{`${dia}, ${fecha} de ${mes} ${anio} (${hora}:${minutos}:${segundos}).`}</p>
     </div>
   )

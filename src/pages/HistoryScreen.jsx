@@ -1,4 +1,4 @@
-import { getDocs, limit, orderBy, query, where } from '@firebase/firestore'
+import { getDocs, query, where } from '@firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useUserContext } from '../context/authContext'
 import { colRef } from '../firebase/config'
