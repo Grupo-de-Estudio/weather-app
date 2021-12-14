@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { fetchCityWeather } from '../../api/Weather'
+import { fetchCityWeather } from '../../api/weather'
 import Loader from 'react-loader-spinner'
 import { deleteDoc, doc } from '@firebase/firestore'
 import { db } from '../../firebase/config'
