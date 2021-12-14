@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 export const Searchbar = ({ setCiudades, setHistorial }) => {
   const [input, setInput] = useState('')
+
   return (
     <div>
       <form
@@ -11,8 +12,8 @@ export const Searchbar = ({ setCiudades, setHistorial }) => {
             .split(',')
             .map((city) => ({ nombre: city, fecha: new Date() }))
           e.preventDefault()
-          setCiudades((prev) => [...prev, ...busquedas])
-          setHistorial((prev) => [...prev, ...busquedas].reverse().slice(0, 10))
+          setCiudades((prev) => [...busquedas, ...prev])
+          setHistorial((prev) => [...busquedas, ...prev].slice(0, 10))
           setInput('')
         }}
       >
@@ -22,6 +23,7 @@ export const Searchbar = ({ setCiudades, setHistorial }) => {
           placeholder="Ingrese una ciudad"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          required
         />
       </form>
     </div>

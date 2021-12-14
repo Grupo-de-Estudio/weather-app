@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { fetchCityWeather } from '../api/Weather'
+import { fetchCityWeather } from '../../api/Weather'
 import Loader from 'react-loader-spinner'
+import { deleteDoc, doc } from '@firebase/firestore'
+import { db } from '../../firebase/config'
 
-export const SingleCard = ({ ciudad, borrarCiudad }) => {
+export const SingleCard = ({ ciudad, id, borrarCiudad }) => {
   const [data, setData] = useState()
 
   useEffect(async () => {
     const resData = await fetchCityWeather(ciudad)
-    setData(resData)
+    if (resData == undefined) {
+      deleteDoc(doc(db, 'tarjetas', id))
+      alert('INTRODUZCA UNA CIUDAD VÁLIDA') ? '' : location.reload()
+    } else {
+      setData(resData)
+    }
   }, [])
+
+  const borrarCiudadFirebase = () => {
+    deleteDoc(doc(db, 'tarjetas', id))
+  }
 
   if (!data)
     return (
@@ -40,7 +51,13 @@ export const SingleCard = ({ ciudad, borrarCiudad }) => {
           Sensasion Termica:{' '}
           <span className="bold">{data.main.feels_like}º</span>
         </p>
-        <button className="borrar" onClick={() => borrarCiudad(ciudad)}>
+        <button
+          className="borrar"
+          onClick={() => {
+            borrarCiudadFirebase()
+            borrarCiudad(id)
+          }}
+        >
           Borrar
         </button>
       </div>

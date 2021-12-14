@@ -1,40 +1,24 @@
 import React from 'react'
-import { useNavigate } from 'react-router'
 
 export const LoginScreen = ({ loguear }) => {
-  const navigate = useNavigate()
   return (
     <div className="login_content">
-      <div>
+      <div className="form-login">
         <h1>Log in</h1>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault()
-          }}
-          className="form_login"
-        >
-          <input
-            className="input_login"
-            type="text"
-            name="usuaruio"
-            placeholder="Usuario"
-          />
-          <input
-            className="input_login"
-            type="password"
-            name="password"
-            placeholder="Contraseña"
-          />
-          <button
-            type="button"
-            onClick={() => {
-              loguear()
-              navigate('/')
-            }}
-          >
-            Iniciar sesion
-          </button>
-        </form>
+
+        <div className="google-btn" onClick={loguear}>
+          <div className="google-icon-wrapper">
+            <img
+              className="google-icon"
+              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              alt="google button"
+            />
+          </div>
+
+          <div className="text-content">
+            <b>Sign in with google</b>
+          </div>
+        </div>
       </div>
     </div>
   )
