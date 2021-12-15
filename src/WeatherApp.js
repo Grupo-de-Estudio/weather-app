@@ -128,7 +128,8 @@ export const WeatherApp = () => {
                 }
               />
               <Route
-                path="/search"
+                path="/"
+                exact
                 element={
                   <SearchScreen
                     desloguear={desloguear}
