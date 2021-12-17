@@ -10,7 +10,7 @@ export const Navbar = ({ desloguear }) => {
   return (
     <nav className="nav_home">
       <div>
-        <NavLink to="/">Inicio</NavLink>
+        <NavLink to="/search">Inicio</NavLink>
 
         <NavLink to="/history">History</NavLink>
       </div>

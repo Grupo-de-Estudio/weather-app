@@ -128,7 +128,7 @@ export const WeatherApp = () => {
                 }
               />
               <Route
-                path="/"
+                path="/search"
                 exact
                 element={
                   <SearchScreen
