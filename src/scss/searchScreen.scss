@@ -83,8 +83,11 @@ a:hover {
   margin: 7.5px 7.5px;
 }
 
-.cards h2,
-p {
+.cards h2 {
+  line-height: 22px;
+}
+
+.cards p {
   margin-top: 15px;
 }
 
